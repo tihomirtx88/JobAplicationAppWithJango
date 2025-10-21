@@ -25,3 +25,22 @@ def register_view(request):
         return redirect('login')
 
     return render(request, 'accounts/register.html')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.error(request, "Invalid username or password.")
+            return redirect('login')
+
+    return render(request, 'accounts/login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
