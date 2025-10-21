@@ -7,10 +7,10 @@ from django.views.decorators.http import require_http_methods
 
 def register(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        password2 = request.POST['password2']
+        username = request.POST.get('username', '')
+        email = request.POST.get('email', '')
+        password = request.POST.get('password', '')
+        password2 = request.POST.get('password2', '')
 
         if password != password2:
             messages.error(request, "Passwords do not match.")
@@ -29,7 +29,7 @@ def register(request):
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')  
+        username = request.POST.get('username')
         password = request.POST.get('password')
 
         user = authenticate(request, username=username, password=password)

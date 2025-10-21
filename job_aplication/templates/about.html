@@ -2,6 +2,57 @@
 {% extends 'base.html' %}
 {% block content %}
 
-  <h1 class="mt-4 mb-4">About Us</h1>
+ <div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-4">About Us</h1>
+        <p class="lead">Learn more about our mission, vision, and the amazing people behind it.</p>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <img src="https://picsum.photos/500/300" alt="Mission" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+            <h2>Our Mission</h2>
+            <p>Our mission is to provide the best services to our clients, fostering innovation, trust, and excellence in everything we do. We strive to make a positive impact in the communities we serve.</p>
+        </div>
+    </div>
+
+    <!-- Vision Section -->
+    <div class="row mb-5">
+        <div class="col-md-6 order-md-2">
+   <img src="https://picsum.photos/150" alt="Team member" class="rounded-circle mb-2">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center order-md-1">
+            <h2>Our Vision</h2>
+            <p>We envision a world where technology and creativity come together to solve real problems. Our team works tirelessly to ensure quality and innovation are at the heart of everything we build.</p>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="text-center mb-4">
+        <h2>Meet the Team</h2>
+        <p class="text-muted">A group of passionate and talented individuals</p>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+           <img src="https://picsum.photos/150?random=1" class="rounded-circle mb-2" alt="Team member">
+            <h5>John Doe</h5>
+            <p class="text-muted">CEO</p>
+        </div>
+        <div class="col-md-4 mb-4">
+            <img src="https://picsum.photos/150?random=2" class="rounded-circle mb-2" alt="Team member">
+            <h5>Jane Smith</h5>
+            <p class="text-muted">CTO</p>
+        </div>
+        <div class="col-md-4 mb-4">
+            <img src="https://picsum.photos/150?random=3" class="rounded-circle mb-2" alt="Team member">
+            <h5>Emily Johnson</h5>
+            <p class="text-muted">Lead Designer</p>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
