@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import render
+from django.views.decorators.http import require_http_methods
 
-def register_view(request):
+def register(request):
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
@@ -28,19 +29,20 @@ def register_view(request):
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')  
+        password = request.POST.get('password')
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/')
+            return redirect('index')
         else:
             messages.error(request, "Invalid username or password.")
             return redirect('login')
 
     return render(request, 'accounts/login.html')
 
+@require_http_methods(["GET", "POST"])
 def logout_view(request):
     logout(request)
     return redirect('login')
